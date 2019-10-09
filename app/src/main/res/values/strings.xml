@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">MobileDev-Lab4</string>
+    <string name="app_name">MobileDev-Lab5</string>
+    <string-array
+        name="colors">
+        <item>White</item>
+        <item>Red</item>
+        <item>Yellow</item>
+        <item>Blue</item>
+        <item>Cyan</item>
+        <item>Green</item>
+        <item>Magenta</item>
+        <item>Dark Gray</item>
+        <item>Gray</item>
+        <item>Light Gray</item>
+    </string-array>
 </resources>

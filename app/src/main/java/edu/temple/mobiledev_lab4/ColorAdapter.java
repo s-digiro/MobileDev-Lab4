@@ -40,6 +40,7 @@ public class ColorAdapter extends BaseAdapter {
 
     ColorAdapter(Context context) {
         this.context = context;
+        strings = context.getResources().getStringArray(R.array.colors);
     }
 
     @Override

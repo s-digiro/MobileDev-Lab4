@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MobileDev-Lab5</string>
+    <string-array
+        name="colors">
+        <item>Blanco</item>
+        <item>Rojo</item>
+        <item>Amarillo</item>
+        <item>Azul</item>
+        <item>Cian</item>
+        <item>Verde</item>
+        <item>Magenta</item>
+        <item>Gris Oscuro</item>
+        <item>Gris</item>
+        <item>Gris Claro</item>
+    </string-array>
+</resources>
