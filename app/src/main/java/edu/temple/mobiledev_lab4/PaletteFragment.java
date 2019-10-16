@@ -1,7 +1,6 @@
 package edu.temple.mobiledev_lab4;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;

@@ -32,7 +32,7 @@ public class CanvasFragment extends Fragment {
         return retval;
     }
 
-    public static CanvasFragment newInstance(int color) {
+    static CanvasFragment newInstance(int color) {
         CanvasFragment fragment = new CanvasFragment();
         Bundle args = new Bundle();
         args.putInt(CanvasFragment.COLOR, color);

@@ -11,18 +11,7 @@ public class ColorAdapter extends BaseAdapter {
 
     private Context context;
 
-    private String[] strings = {
-            "White",
-            "Red",
-            "Yellow",
-            "Blue",
-            "Cyan",
-            "Green",
-            "Magenta",
-            "Dark Gray",
-            "Gray",
-            "Light Gray"
-    };
+    private String[] strings;
 
     private int[] colors = {
             Color.WHITE,
