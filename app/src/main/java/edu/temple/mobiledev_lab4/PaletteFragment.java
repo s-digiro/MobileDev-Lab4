@@ -29,7 +29,7 @@ public class PaletteFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 view.setBackgroundColor(Color.WHITE);
                 if (i > 0) {
-                    Fragment frag = new CanvasFragment(adapter.getColor(position));
+                    Fragment frag = CanvasFragment.newInstance(adapter.getColor(position));
                     FragmentTransaction transaction = PaletteFragment.this.getActivity().getSupportFragmentManager().beginTransaction();
 
                     transaction.replace(R.id.canvasFragment, frag);

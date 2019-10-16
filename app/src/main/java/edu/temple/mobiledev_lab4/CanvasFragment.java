@@ -12,22 +12,32 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 public class CanvasFragment extends Fragment {
-
-    private int color;
-
-    public CanvasFragment() {
-        this.color = Color.WHITE;
-    }
-
-    public CanvasFragment(int color) {
-        this.color = color;
-    }
+    private static final String COLOR = "color";
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View retval = inflater.inflate(R.layout.activity_canvas, container, false);
+        Integer color = null;
+        Bundle bundle = this.getArguments();
+
+        if (bundle != null) {
+            color = bundle.getInt("color");
+        }
+        if (color == null) {
+            color = Color.WHITE;
+        }
         retval.setBackgroundColor(color);
+
         return retval;
+    }
+
+    public static CanvasFragment newInstance(int color) {
+        CanvasFragment fragment = new CanvasFragment();
+        Bundle args = new Bundle();
+        args.putInt(CanvasFragment.COLOR, color);
+        fragment.setArguments(args);
+
+        return fragment;
     }
 }
