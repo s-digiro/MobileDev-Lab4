@@ -1,5 +1,6 @@
 package edu.temple.mobiledev_lab4;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -20,31 +21,35 @@ public class PaletteFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View retval = inflater.inflate(R.layout.activity_palette, container, false);
         final Spinner color = retval.findViewById(R.id.spinner);
-        final ColorAdapter adapter = new ColorAdapter(this.getActivity());
-        color.setAdapter(adapter);
+        final Activity activity = this.getActivity();
+        if (activity != null) {
+            final ColorAdapter adapter = new ColorAdapter(this.getActivity());
+            color.setAdapter(adapter);
 
-        color.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            private int i = 0;
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                view.setBackgroundColor(Color.WHITE);
-                if (i > 0) {
-                    Fragment frag = CanvasFragment.newInstance(adapter.getColor(position));
-                    FragmentTransaction transaction = PaletteFragment.this.getActivity().getSupportFragmentManager().beginTransaction();
+            color.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                private int i = 0;
 
-                    transaction.replace(R.id.canvasFragment, frag);
-                    transaction.addToBackStack(null);
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    view.setBackgroundColor(Color.WHITE);
+                    if (i > 0) {
+                        Fragment frag = CanvasFragment.newInstance(adapter.getColor(position));
+                        FragmentTransaction transaction = PaletteFragment.this.getActivity().getSupportFragmentManager().beginTransaction();
 
-                    transaction.commit();
+                        transaction.replace(R.id.canvasFragment, frag);
+                        transaction.addToBackStack(null);
+
+                        transaction.commit();
+                    }
+                    i++;
                 }
-                i++;
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                parent.setBackgroundColor(Color.RED);
-            }
-        });
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                    parent.setBackgroundColor(Color.RED);
+                }
+            });
+        }
         return retval;
     }
 }
